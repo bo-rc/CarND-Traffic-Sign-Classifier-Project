@@ -27,7 +27,7 @@ signs data set:
 
 Here is an exploratory visualization of the data set. It is a bar chart showing how the samples are distributed
 
-![origin dataset][Figs/origin_dataset.png]
+![origin dataset](Figs/origin_dataset.png)
 
 ### Design and Test a Model Architecture
 
@@ -43,13 +43,13 @@ The dataset for training is not so big and the distribution of samples is not un
 
 Here is an example of an original image and augmented images (this time all three image transform operations are performed. In practice, none to all three may be performed. ):
 
-![image test][Figs/img_transform_test.png]
+![image test](Figs/img_transform_test.png)
 
 As a last step, I normalized the image data to the range of [0, 1], aiming for a better behavior of grediant decent convergence during training time.
 
 Now, the sample distribution across classes in the training dataset shows:
 
-![aug_dataset][Figs/aug_dataset.png]
+![aug_dataset](Figs/aug_dataset.png)
 
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
@@ -77,14 +77,14 @@ The epoch numbers and learning rates are tuned according to convergence recordin
 
 Here are the random traffic signs that I found on the web:
 
-![1][signs_from_web/1.jpg] 
-![2][signs_from_web/4.jpg]
-![3][signs_from_web/12e.png]
-![4][signs_from_web/467030179.jpg]
-![5][signs_from_web/dew.png]
-![6][signs_from_web/images.jpg]
-![7][signs_from_web/unnamed.png]
-![8][signs_from_web/fre43r.jpeg]
+![1](signs_from_web/1.jpg)
+![2](signs_from_web/4.jpg)
+![3](signs_from_web/12e.png)
+![4](signs_from_web/467030179.jpg)
+![5](signs_from_web/dew.png)
+![6](signs_from_web/images.jpg)
+![7](signs_from_web/unnamed.png)
+![8](signs_from_web/fre43r.jpeg)
 
 The 5th image might be difficult to classify because it is from Thailand (not German).
 
