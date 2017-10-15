@@ -27,36 +27,36 @@ signs data set:
 
 Here is an exploratory visualization of the data set. It is a bar chart showing how the samples are distributed
 
-![origin dataset][Figs/origin_dataset.png]
+![origin dataset](Figs/origin_dataset.png)
 
 ### Design and Test a Model Architecture
 
 #### 1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
 
 The dataset for training is not so big and the distribution of samples is not uniform. To improve the quality of the training dataset, artificial augmentation is performed:
-* Depending on the sample sizes of each class in the training dataset, a random number of additional images are generated. The smaller the size of the original class, the higher the probability that additional images are generated for that class.
- * the goal is to make the distribution of training samples more uniform (see below).
+* Depending on the sample size of each class in the training dataset, a random number of additional images are generated. The smaller the size of the original class, the higher the probability that additional images would be generated for that class.
+    * the goal is to make the distribution of training samples more uniform (see below).
 * Three image transform operations are randomly selected for the generation of new images:
- * blurring.
- * rotating w.r.t a randomly selected pivot point on the image.
- * brightness adjustment.
+    * blurring.
+    * rotating w.r.t a randomly selected pivot point on the image.
+    * brightness adjustment.
 
 Here is an example of an original image and augmented images (this time all three image transform operations are performed. In practice, none to all three may be performed. ):
 
-![image test][Figs/img_transform_test.png]
+![image test](Figs/img_transform_test.png)
 
 As a last step, I normalized the image data to the range of [0, 1], aiming for a better behavior of grediant decent convergence during training time.
 
 Now, the sample distribution across classes in the training dataset shows:
 
-![aug_dataset][Figs/aug_dataset.png]
+![aug_dataset](Figs/aug_dataset.png)
 
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
 My final model is exactly the same as LeNet except that an additional convolutional layer (using 32 filters of size 2x2) is added just before the first fully connected layer.
 
-####3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
+#### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
 To train the model, I used `xavier_initializer` for the weights and `zero_initializer` for the biases. A 0.5 drop_out rate is used on the last two fully-connected layers. I tried a variaty of learning rates and epochs, and finally got a model that has a training accuracy of 98.7% and validation accuracy of 96.3%. 
 
@@ -77,14 +77,14 @@ The epoch numbers and learning rates are tuned according to convergence recordin
 
 Here are the random traffic signs that I found on the web:
 
-![1][signs_from_web/1.jpg] 
-![2][signs_from_web/4.jpg]
-![3][signs_from_web/12e.png]
-![4][signs_from_web/467030179.jpg]
-![5][signs_from_web/dew.png]
-![6][signs_from_web/images.jpg]
-![7][signs_from_web/unnamed.png]
-![8][signs_from_web/fre43r.jpeg]
+![1](signs_from_web/1.jpg)
+![2](signs_from_web/4.jpg)
+![3](signs_from_web/12e.png)
+![4](signs_from_web/467030179.jpg)
+![5](signs_from_web/dew.png)
+![6](signs_from_web/images.jpg)
+![7](signs_from_web/unnamed.png)
+![8](signs_from_web/fre43r.jpeg)
 
 The 5th image might be difficult to classify because it is from Thailand (not German).
 
@@ -135,7 +135,7 @@ for i in range(len(images32)):
 ```
 
 The output is the following:
-`
+```
 image 1  preditions: 
 >>>>> Children crossing(95%)
 >>>>> Road narrows on the right(3%)
@@ -184,10 +184,13 @@ image 8  preditions:
 >>>>> Priority road(0%)
 >>>>> No passing for vehicles over 3.5 metric tons(0%)
 >>>>> No passing(0%)
-`
+```
 
+The model performs very well for most of the test images. The fifth one got wrong maybe because this sign is actually from Thailand. The certainty of all other trials are so high that I would think my model could have some overfitting problem. For future refinement, I would add an L2-norm regularization to the CNN architecture.
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 ####1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
+
+Chose not to do this at this moment.
 
 
