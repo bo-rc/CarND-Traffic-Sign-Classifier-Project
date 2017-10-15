@@ -20,7 +20,7 @@ signs data set:
 * The size of training set is 34799
 * The size of the validation set is 4410
 * The size of test set is 12630
-* The shape of a traffic sign image is (32, 32)
+* The shape of a traffic sign image is (32, 32, 3)
 * The number of unique classes/labels in the data set is 43
 
 #### 2. Include an exploratory visualization of the dataset.
@@ -58,7 +58,7 @@ My final model is exactly the same as LeNet except that an additional convolutio
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-To train the model, I used `xavier_initializer` for the weights and `zero_initializer` for the biases. A 0.5 drop_out rate is used on the last two fully-connected layers. I tried a variaty of learning rates and epochs, and finally got a model that has a training accuracy of 98.7% and validation accuracy of 96.3%. 
+To train the model, I used `xavier_initializer` for the weights and `zero_initializer` for the biases. A 0.5 drop_out rate is used on the last two fully-connected layers. The `AdamOptimizer` is chosen. I tried a variaty of batch sizes, learning rates and epochs, and finally I used `learning_rate = 0.0001`, batch size: 512 and epochs: 80.  The model was trained on a desktop GPU and it has a training accuracy of 98.7% and validation accuracy of 96.3%. 
 
 #### 4. discuss why you think the architecture is suitable for the current problem.
 
@@ -75,7 +75,7 @@ The epoch numbers and learning rates are tuned according to convergence recordin
 
 #### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
-Here are the random traffic signs that I found on the web:
+Here are 8 random traffic signs that I downloaded from the web:
 
 ![1](signs_from_web/1.jpg)
 ![2](signs_from_web/4.jpg)
