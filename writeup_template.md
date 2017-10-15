@@ -186,7 +186,7 @@ image 8  preditions:
 >>>>> No passing(0%)
 ```
 
-The model performs very well for most of the test images. The fifth one got wrong maybe because this sign is actually from Thailand. The certainty of all other trials are so high that I would think my model could have some overfitting problem. For future refinement, I would add an L2-norm regularization to the CNN architecture.
+The accuracy is about 87.5%: 7 correct predictions out of 8 images. The accuracy is comparable to the one obtained based on the test dataset. One factor this model guessed wrong for the fifth image is that this sign is not a German traffic sign. In our German sign training set, we do not have a diamond-shaped plate for the right turn sign; all German turn signs are on round plates.
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 ####1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
